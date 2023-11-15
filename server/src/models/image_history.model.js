@@ -1,6 +1,4 @@
-// Import the DataTypes module from Sequelize.
 import { DataTypes } from 'sequelize';
-// Import the Sequelize instance
 import sequelize from '../database/db.connection.js';
 
 // Define a "Image_history" model using Sequelize. This represents a table in the database.
