@@ -7,7 +7,7 @@
 *.pnp.js
 package-lock.json
 */package-lock.json
-server/assets/images/*
+assets/images/*
 # testing
 */coverage
 /coverage

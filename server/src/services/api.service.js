@@ -4,7 +4,7 @@ import axios from 'axios';
 import sharp from 'sharp';
 import server from '../index.js';
 import generateUniqueFileName from "../middleware/generateUniqueFileName.middleware.js";
-
+import Image_history from "../models/image_history.model.js";
 const execPromise = promisify(exec);
 
 export default class ApiService {
@@ -17,10 +17,8 @@ export default class ApiService {
         try {
             // Execute 'npm list --depth=0' command to get all dependencies
             const { stdout, stderr } = await execPromise('npm list --depth=0 --json');
-      
             // Parse the JSON output
             const dependencies = JSON.parse(stdout).dependencies;
-      
             // Add dependencies to the health check response
             healthCheck.dependencies = dependencies;
             return healthCheck;
@@ -39,8 +37,12 @@ export default class ApiService {
         const imageFileName = await generateUniqueFileName();
         const savedImagePath = `assets/images/${imageFileName}.jpg`;
         await sharp(processedImageBuffer).toFile(savedImagePath);
-
         const imageUrlForClient = `http://localhost:${server.address().port}/images/${imageFileName}.jpg`;
+
+        const newImage_history = await Image_history.create({
+            urlOrigin: imageUrl,
+            urlNew: imageUrlForClient
+        });
         return { imageUrl: imageUrlForClient };
     }
 }
