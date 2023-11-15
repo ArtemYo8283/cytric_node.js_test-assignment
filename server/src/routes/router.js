@@ -5,7 +5,7 @@ class AppRouter {
 		this.app.get('/', (_req, res) => {
 			res.send('API Running');
 		});
-		this.app.use('/api/', apiRouter);
+		this.app.use('/api', apiRouter);
 	}
 }
 
