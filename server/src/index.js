@@ -12,6 +12,7 @@ const limiter = rateLimit({
     max: 5, //The maximum number of requests for the specified time period
     message: 'Request limit exceeded. Try again later.',
 });
+
 const corsOptions = {
     origin: 'http://localhost:3000',
     credentials: true,
@@ -34,5 +35,6 @@ router.init();
 const port = app.get('port');
 
 const server = app.listen(port, () => console.log(`Server started on port ${port}`));
-const host = "http://localhost";
+const host = "https://cytricnodejstest-assignment-production.up.railway.app";
+
 export { server, host };

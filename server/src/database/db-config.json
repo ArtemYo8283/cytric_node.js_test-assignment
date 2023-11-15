@@ -1,7 +1,7 @@
 {
-    "host": "localhost",
+    "host": "roundhouse.proxy.rlwy.net",
     "user": "root",
-    "port": "3306",
-    "password": "root",
+    "port": "51672",
+    "password": "Hg-1A6DC45cf1-gE44A1HEDA5a3GdHgh",
     "database": "cytric_test_task"
 }

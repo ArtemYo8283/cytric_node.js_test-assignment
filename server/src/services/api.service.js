@@ -42,7 +42,8 @@ export default class ApiService {
         const savedImagePath = `assets/images/${imageFileName}.jpg`;
         await sharp(processedImageBuffer).toFile(savedImagePath);
         // Create a URL for the client based on the server's host and port
-        const imageUrlForClient = `${host}:${server.address().port}/images/${imageFileName}.jpg`;
+        //const imageUrlForClient = `${host}:${server.address().port}/images/${imageFileName}.jpg`;
+        const imageUrlForClient = `${host}/images/${imageFileName}.jpg`;
         // Save image processing history in the database
         const newImage_history = await Image_history.create({
             urlOrigin: imageUrl,
