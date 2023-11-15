@@ -1,6 +1,4 @@
-// Import the ApiService module.
 import ApiService from "../services/api.service.js";
-// Import validator functions.
 
 export class ApiController {
     constructor () {
