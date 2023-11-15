@@ -40,7 +40,6 @@ CREATE TABLE `imagehistories` (
 
 LOCK TABLES `imagehistories` WRITE;
 /*!40000 ALTER TABLE `imagehistories` DISABLE KEYS */;
-INSERT INTO `imagehistories` VALUES (1,'https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg','http://localhost:8080/images/20231115T202254990Z_pe1ya0.jpg','2023-11-15 20:22:54','2023-11-15 20:22:54');
 /*!40000 ALTER TABLE `imagehistories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
