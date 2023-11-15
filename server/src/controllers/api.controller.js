@@ -7,7 +7,7 @@ export class ApiController {
         // Create an instance of the ApiService class.
         this.service = new ApiService();
     }
-    //
+
     async getStatus(req, res) {
         const result = await this.service.getStatus();
         return result;
