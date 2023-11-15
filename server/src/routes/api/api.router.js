@@ -9,4 +9,9 @@ apiRouter.get(
     tryCatch(apiController.getStatus.bind(apiController))
 );
 
+apiRouter.post(
+    '/process-image', 
+    tryCatch(apiController.processImage.bind(apiController))
+);
+
 export default apiRouter;
