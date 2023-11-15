@@ -12,6 +12,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "axios": "^1.6.2",
         "body-parser": "^1.20.2",
         "child_process": "^1.0.2",
         "cors": "^2.8.5",
@@ -24,6 +25,7 @@
         "nodemon": "^3.0.1",
         "path": "^0.12.7",
         "sequelize": "^6.35.0",
+        "sharp": "^0.32.6",
         "util": "^0.12.5"
     }
 }

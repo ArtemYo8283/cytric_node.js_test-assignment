@@ -1,5 +1,9 @@
 import { exec } from 'child_process';
 import { promisify } from 'util';
+import axios from 'axios';
+import sharp from 'sharp';
+import server from '../index.js';
+import generateUniqueFileName from "../middleware/generateUniqueFileName.middleware.js";
 
 const execPromise = promisify(exec);
 
@@ -24,6 +28,20 @@ export default class ApiService {
             console.error(`Error: ${error.message}`);
             return { error: 'Internal Server Error' };
         }
+    }
+
+    async processImage(imageUrl) {
+        const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+        const processedImageBuffer = await sharp(response.data)
+        .grayscale() // Apply grayscale filter
+        .resize(200, 200) // Resize to 200x200
+        .toBuffer();
+        const imageFileName = await generateUniqueFileName();
+        const savedImagePath = `assets/images/${imageFileName}.jpg`;
+        await sharp(processedImageBuffer).toFile(savedImagePath);
+
+        const imageUrlForClient = `http://localhost:${server.address().port}/images/${imageFileName}.jpg`;
+        return { imageUrl: imageUrlForClient };
     }
 }
 
